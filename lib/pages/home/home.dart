@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:state_mgmt_and_form/pages/home/riverpod.dart';
 
 class HomePage extends ConsumerWidget {
@@ -37,7 +38,7 @@ class HomePage extends ConsumerWidget {
                 )),
             ElevatedButton(
                 onPressed: () {
-                     ref.read(riverpodHardLevel).remove();
+                  ref.read(riverpodHardLevel).remove();
                 },
                 child: const Text(
                   "- Remove",
@@ -45,7 +46,14 @@ class HomePage extends ConsumerWidget {
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
-                ))
+                )),
+            ElevatedButton.icon(
+              onPressed: () {
+                context.go("/pg1");
+              },
+              label: Text("Next"),
+              icon: Icon(Icons.arrow_forward),
+            )
           ],
         ),
       ),
